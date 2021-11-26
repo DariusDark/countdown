@@ -1,0 +1,316 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merienda&family=Saira+Stencil+One&display=swap'); */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    user-select: none;
+    outline: none;
+}
+
+*,*:after,*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,:active {outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input,button,textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a{text-decoration: none;color: #111;} /*<<<Color*/
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+/*Конец обнуления*/
+
+body {
+    background: #1d1d1d;
+    font-family: 'Merienda', cursive;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url("../img/forest.jpg") center/cover no-repeat;
+    padding: 50px 20px;
+    padding-top: 100px;
+    overflow: hidden;
+}
+.wrapper:before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background: rgba(0, 0, 0, 0.385);
+}
+.countdown__title {
+    position: relative;
+    z-index: 1;
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+    /* margin-top: -100px; */
+    margin-bottom: 50px;
+}
+.countdown {
+    position: relative;
+    z-index: 1;
+    min-height: 200px;
+    min-width: 400px;
+    background: rgba(172, 172, 172, 0.22);
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.303);
+}
+.countdown__container {
+    margin-top: -30px;
+    position: relative;
+    padding: 2px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.countdown__container:before {
+    position: relative;
+    content: ':';
+    top: 10px;
+    color: #fff;
+    font-size: 18px;
+    transform: translate(-50%,-50%);
+}
+.countdown__container:first-child:before {
+    display: none;
+}
+
+
+.countdown__hours,
+.countdown__minutes,
+.countdown__seconds {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 4;
+    padding: 4px 0;
+    margin: 0px 20px;
+    min-width: 75px;
+    color: rgb(213, 213, 213);
+    font-size: 60px;
+}
+
+.countdown__hours:before,
+.countdown__minutes:before,
+.countdown__seconds:before {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 15px);
+    font-size: 14px;
+    transform: translate(-50%, -50%);
+    font-family: 'Merienda', cursive;
+}
+.countdown__hours:before {
+    content: 'Hours';
+}
+.countdown__minutes:before {
+    content: 'Minutes';
+}
+.countdown__seconds:before {
+    content: 'Seconds';
+}
+.countdown__btn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 100%;
+    transform: translateY(-50%);
+    padding: 10px 0px;
+    background: #3E8B47;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.303);
+    color: rgb(192,192,192);
+    transition: box-shadow 0.3s ease;
+}
+.countdown__btn:hover {
+    box-shadow: 0 0 10px rgba(49, 146, 49, 0.576);
+}
+.countdown__btn:active {
+    background: rgb(54, 123, 62);
+}
+.countdown__btn.active {
+    background: rgb(136, 45, 45);
+}
+.countdown__btn.active:hover {
+    box-shadow: 0 0 15px rgba(155, 62, 62, 0.576); 
+}
+.countdown__btn.active:active {
+    background: rgb(118, 40, 40)
+}
+
+.countdown__set {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: #fff;
+    display: flex;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.countdown__set.active {
+    transform: translate(-200%, -50%);
+    opacity: 0;
+    visibility: hidden;
+}
+.countdown__set.active + .countdown__side-screen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform 0.8s ease;
+}
+
+.countdown__arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown__arrow {
+    position: absolute;
+    right: 15px;
+    animation: 3s vanishing var(--i) linear infinite;
+}
+
+@keyframes vanishing {
+    0% {
+        transform: translateX(0);
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-20px);
+        opacity: 0.1;
+    }
+
+}
+
+.countdown__set-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+.countdown__side-screen {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    height: 100%;
+    min-width: 250px;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    background: rgba(95, 95, 95, 0.248);
+    color: rgb(233, 233, 233);
+    backdrop-filter: blur(8px);
+    padding: 40px 10px;
+    text-align: center;
+    transform: translateX(150%);
+    transition: 0.8s ease;
+}
+.side-screen__title {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.side-screen__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px -5px;
+    margin-bottom: 20px;
+}
+.side-screen__container {
+    margin: 0px 5px;
+}
+.side-screen__input {
+    text-align: center;
+    max-width:70px;
+    padding: 5px 5px;
+    /* background: rgba(255, 255, 255, 0.131); */
+    background: rgba(48, 48, 48, 0.63);
+    border-radius: 4px;
+    color: rgb(232, 232, 232);
+    box-shadow: 0 0 20px rgba(63, 128, 85, 0.2);
+}
+.side-screen__input::placeholder {
+    color: #ddddddec;
+}
+
+.side-screen__btn {
+    background: rgb(62, 139, 71);
+    border-radius: 4px;
+    padding: 7.5px 10px;
+    width: 100%;
+    color: inherit;
+    margin-bottom: auto;
+    transition: box-shadow 0.3s ease;
+}
+.side-screen__btn:hover {
+    box-shadow: 0 0 10px rgba(70, 169, 82, 0.268);
+}
+.side-screen__btn:active {
+    background: rgb(54, 123, 62);
+}
+.side-screen__music-title {
+    margin-bottom: 20px;
+}
+.frame {
+    border-radius: 4px;
+    overflow: hidden;
+}
+.creator {
+    margin-top: auto;
+}
+
+.countdown__close {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    display: flex;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}

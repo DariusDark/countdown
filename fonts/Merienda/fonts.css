@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Merienda';
+	src: url('./Merienda-Regular.eot');
+	src: local('☺'), url('./Merienda-Regular.woff') format('woff'), url('./Merienda-Regular.ttf') format('truetype'), url('./Merienda-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+

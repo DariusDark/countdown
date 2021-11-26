@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Дополнительные мета теги -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="robots" content="none">
+	<link rel="stylesheet" href="./fonts/Merienda/fonts.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<title>Timer</title>
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="countdown__title">Life in Forest</div>
+		<div class="countdown">
+			<div class="countdown__container">
+				<div class="countdown__hours" id="hoursRemain">0</div>
+			</div>
+			<div class="countdown__container">
+				<div class="countdown__minutes" id="minutesRemain">0</div>
+			</div>
+			<div class="countdown__container">
+				<div class="countdown__seconds" id="secondsRemain">0</div>
+			</div>
+			<button class="countdown__btn" id="startTimer">Start</button>
+		</div>
+		<div class="countdown__set" id="sideOpener">
+			<div class="countdown__arrows">
+				<span class="countdown__arrow" style="--i:-0.5s">
+					<ion-icon name="chevron-back-outline"></ion-icon>
+				</span>
+				<span class="countdown__arrow" style="--i:-1.5s">
+					<ion-icon name="chevron-back-outline"></ion-icon>
+				</span>
+				<span class="countdown__arrow" style="--i:-2.5s">
+					<ion-icon name="chevron-back-outline"></ion-icon>
+				</span>
+			</div>
+			<span class="countdown__set-text">Open side Screen</span>
+		</div>
+		<div class="countdown__side-screen">
+			<div class="countdown__close" id="sideCloser">
+				<div class="countdown__arrows">
+					<span class="countdown__arrow" style="--i:-0.5s reverse">
+						<ion-icon name="chevron-forward-outline"></ion-icon>
+					</span>
+					<span class="countdown__arrow" style="--i:-1.5s reverse">
+						<ion-icon name="chevron-forward-outline"></ion-icon>
+					</span>
+					<span class="countdown__arrow" style="--i:-2.5s reverse">
+						<ion-icon name="chevron-forward-outline"></ion-icon>
+					</span>
+				</div>
+				<span class="countdown__set-text">Close side Screen</span>
+			</div>
+			<div class="side-screen__title">Please, Set the Time</div>
+			<div class="side-screen__row">
+				<div class="side-screen__container">
+					<input class="side-screen__input input__hours" id="setHours" type="number" placeholder="hours">
+				</div>
+				<div class="side-screen__container">
+					<input class="side-screen__input input__minutes" id="setMinutes" type="number" placeholder="minutes">
+				</div>
+				<div class="side-screen__container">
+					<input class="side-screen__input input__seconds" id="setSeconds" type="number" placeholder="seconds">
+				</div>
+			</div>
+			<button class="side-screen__btn" id="setTimer">Set Time</button>
+			<div class="side-screen__music">
+				<div class="side-screen__music-title">Listen to Music</div>
+				<iframe class="frame" width="300" height="200" src="https://www.youtube.com/embed/1Fr84_Fr96Q?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+			</div>
+			<div class="creator">Created by <span class="creator-name">Darius</span></div>
+		</div>
+	</div>
+	<script src="./js/main.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
