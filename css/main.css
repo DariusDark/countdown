@@ -306,6 +306,26 @@ body {
     margin-top: auto;
 }
 
+.creator__name {
+    position: relative;
+    color: inherit;
+}
+
+.creator__name:before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    height: 1px;
+    width: 0;
+    transition: .4s width ease;
+    background: rgb(79, 182, 93);
+}
+
+.creator__name:hover:before {
+    width: 100%;
+}
+
 .countdown__close {
     position: absolute;
     right: 100%;
