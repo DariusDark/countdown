@@ -9,7 +9,7 @@ const sideOpener = document.getElementById('sideOpener'),
     secondsRemain = document.getElementById('secondsRemain'),
     startTimer = document.getElementById('startTimer');
 
-let bool = false;
+let isTimerActive = false;
 let currHours = +hoursRemain.textContent;
 let currMinutes = +minutesRemain.textContent;
 let currSeconds = +secondsRemain.textContent;
@@ -17,12 +17,12 @@ let currSeconds = +secondsRemain.textContent;
 
 
 setInterval(() => {
-    if (bool) {
+    if (isTimerActive) {
         counter();
     }
 }, 1000);
 
-function counter() {
+function counter(bool) {
 
     const second = 1000;
     const minute = second * 60;
@@ -32,12 +32,14 @@ function counter() {
     let gap = currHours * hour + currMinutes * minute + currSeconds * second;
 
     if (gap !== 0) {
-        gap = gap - 1000;
+        if(bool !== 'set') {
+            gap = gap - 1000;
+        }
         hoursRemain.textContent = currHours = Math.floor((gap % day) / hour);
         minutesRemain.textContent = currMinutes = Math.floor((gap % hour) / minute);
         secondsRemain.textContent = currSeconds = Math.floor((gap % minute) / second);
     } else {
-        bool = false;
+        isTimerActive = false;
         startTimer.textContent = 'Start';
         startTimer.classList.remove('active');
     }
@@ -47,10 +49,10 @@ function counter() {
 startTimer.addEventListener('click', function () {
 
     if (this.classList.contains('active')) {
-        bool = false;
+        isTimerActive = false;
         this.textContent = 'Start';
     } else {
-        bool = true;
+        isTimerActive = true;
         this.textContent = 'Stop';
     }
     this.classList.toggle('active');
@@ -70,6 +72,7 @@ setTimer.addEventListener('click', function () {
         setHours.value = '';
         setMinutes.value = '';
         setSeconds.value = '';
+        counter('set');
     }
 });
 
